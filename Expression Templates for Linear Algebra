@@ -1,0 +1,14 @@
+// Advanced expression templates for lazy evaluation
+template <typename E1, typename E2>
+class VecSum {
+    E1 const& _u; E2 const& _v;
+public:
+    VecSum(E1 const& u, E2 const& v) : _u(u), _v(v) {}
+    auto operator[](size_t i) const { return _u[i] + _v[i]; }
+    size_t size() const { return _u.size(); }
+};
+
+template <typename E1, typename E2>
+VecSum<E1,E2> operator+(E1 const& u, E2 const& v) {
+    return VecSum<E1,E2>(u,v);
+}
