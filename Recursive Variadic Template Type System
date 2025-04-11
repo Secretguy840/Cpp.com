@@ -1,0 +1,11 @@
+// Type-level programming with variadic templates
+template <typename...> struct TypeList;
+
+template <typename T, typename... Ts>
+struct TypeList<T, Ts...> {
+    using Head = T;
+    using Tail = TypeList<Ts...>;
+};
+
+template <template <typename> class F, typename... Ts>
+auto transform(TypeList<Ts...>) -> TypeList<F<Ts>...>;
