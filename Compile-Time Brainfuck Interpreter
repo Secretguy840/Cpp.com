@@ -1,0 +1,14 @@
+// A C++ template metaprogram that interprets Brainfuck at compile time
+template <char...> struct Brainfuck;
+
+template <char... Cs> struct Brainfuck<'.', Cs...> {
+    static void eval() { putchar(Brainfuck<Cs...>::mem[Brainfuck<Cs...>::ptr]); }
+};
+
+template <char... Cs> struct Brainfuck<'+', Cs...> {
+    static void eval() { 
+        ++Brainfuck<Cs...>::mem[Brainfuck<Cs...>::ptr];
+        Brainfuck<Cs...>::eval();
+    }
+};
+// More instructions...
