@@ -1,0 +1,13 @@
+// Simplified quantum computing simulation using complex templates
+template <typename T> class Qubit {
+    std::complex<T> alpha; // |0> amplitude
+    std::complex<T> beta;  // |1> amplitude
+public:
+    void applyHadamard() {
+        std::complex<T> new_alpha = (alpha + beta)/std::sqrt(2);
+        std::complex<T> new_beta = (alpha - beta)/std::sqrt(2);
+        alpha = new_alpha;
+        beta = new_beta;
+    }
+    // More quantum gates...
+};
