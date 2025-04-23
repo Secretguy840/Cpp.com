@@ -27,7 +27,7 @@ Collection of C++ code including algorithms, data structures, and projects.
 
 ### Installation
 ```bash
-git clone https://github.com/your-username/cpp.git
+git clone https://github.com/Secretguy840/cpp.git
 cd cpp
 g++ filename.cpp -o output
 ./output
